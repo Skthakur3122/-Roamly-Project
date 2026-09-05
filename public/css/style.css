@@ -1,0 +1,343 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+.container{
+   flex:1; 
+
+}
+.navbar{
+    height : 5rem;
+    background-color: rgb(215, 215, 211);
+}
+.navbar .navbar-brand {
+    color: rgba(206, 7, 7, 0.89);
+}
+.nav-link{
+    color :darkred !important;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;             
+}
+
+.f-info-socials {
+    display: flex;           
+    gap: 1rem;              
+    width: auto;
+    font-size: 1.2rem;
+     justify-content: center;
+     margin:8px;
+     color: #222222;
+}
+
+.f-info-links {
+    display: flex;           
+    gap: 1rem;           
+    width: auto;
+    font-size: 1.2rem;
+     justify-content: center;
+}
+.webname{
+    color: #222222;
+}
+/* cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 30px;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+.card-body{
+    padding :0 !important;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: aliceblue;
+}
+.show-image {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+.heading {
+    width: 66.67%;
+    margin: 0 auto 15px;
+    color: #222;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.heading:hover {
+    color: #fe424d;
+    transform: translateY(-2px);
+}
+
+.listing-card .card-body ul {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.listing-card .card-body li {
+    margin-bottom: 5px;
+    transition: 0.2s ease;
+}
+
+.listing-card .card-body li:hover {
+    color: #4f0606;
+}
+
+
+
+.review-form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease;
+}
+
+.review-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.card-text-star{
+     color: gold;
+   -webkit-text-stroke: 0.5px black;
+   font-size: 18px; 
+}
+
+.reviews-section {
+    margin-top: 40px;
+    padding: 15px 0;
+    border-top: 2px solid #ddd;
+}
+
+.reviews-section h3 {
+    margin: 0;
+}
+
+.reviews-section p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+form .form-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 7px;
+}
+
+form .form-control {
+    transition: all 0.2s ease;
+}
+
+form .form-control:focus {
+    transform: translateY(-2px);
+    border-color: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+form .form-control:hover {
+    border-color: #888;
+     transform: translateY(-2px);
+}
+
+form h3 {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+form h3 {
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+form h3:hover {
+      color: #000;
+    transform: translateY(-2px);
+}
+
+form hr {
+    border: 2px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+
+/* About Page */
+
+.about-page {
+    padding: 40px 20px;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.about-header h1 {
+    font-weight: 600;
+    color: #e67e22;
+    transition: 0.2s ease;
+}
+
+.about-header h1:hover {
+    color: #d35400;
+    transform: translateY(-2px);
+}
+
+.about-header p {
+    color: #777;
+}
+
+.about-section {
+    margin: 30px 0;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.about-section h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #e67e22;
+    margin-top: 7px;
+    border-radius: 5px;
+}
+
+.about-section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-features {
+    display: flex;
+    gap: 15px;
+}
+
+.feature-box {
+    flex: 1;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-3px);
+    border-color: #e67e22;
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.12);
+}
+
+.feature-box h4 {
+    font-size: 18px;
+    color: #e67e22;
+    margin-bottom: 8px;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: 35px;
+    padding: 25px;
+    background: #fff7ef;
+    border-radius: 10px;
+}
+
+.about-cta h3 {
+    color: #333;
+}
+
+.about-cta p {
+    color: #666;
+}
+
+.about-cta .btn {
+    background: #e67e22;
+    border-color: #e67e22;
+}
+
+.about-cta .btn:hover {
+    background: #d35400;
+    border-color: #d35400;
+}
+
+@media (max-width: 768px) {
+    .about-features {
+        flex-direction: column;
+    }
+}
+
+/* Maps */
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.tax-info{
+    display: none;
+}

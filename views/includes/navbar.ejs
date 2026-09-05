@@ -1,0 +1,86 @@
+
+<style>
+    .search{
+        border-radius: 25px ;
+
+
+    }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="/listings">
+            <i class="fa-regular fa-compass"></i>
+            Roamly
+        </a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+ 
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+<% if(currentUser) { %>
+            <!-- LEFT SIDE -->
+            <div class="navbar-nav">
+                <a class="nav-link mx-2" href="/listings">
+                   Explore
+                </a>
+
+                <a class="nav-link mx-2" href="/listings/new">
+                Start Hosting
+                </a>
+
+                <a class="nav-link mx-2" href="/about">
+                    About
+                </a>
+<% } %>
+
+   <div class="search mx-auto">
+    <form class="d-flex" role="search" method="get" action="/search">
+        <input class="form-control me-2"
+               type="search"
+                 name="query"
+               placeholder="Search destinations"
+               aria-label="Search">
+
+        <button class="btn btn-outline-danger" search type="submit">
+            Search
+        </button>
+    </form>
+</div>
+          </div>
+            
+
+            <!-- RIGHT SIDE -->
+            <div class="navbar-nav ms-auto d-flex align-items-center">
+             <% if(!currentUser) { %>
+                <a class="nav-link mx-2" href="/register">
+                   <b>Sign Up</b> 
+                </a>
+
+                <a class="nav-link mx-2" href="/login">
+                    <b>Login</b>
+                </a>
+             <% } else { %> 
+
+                <a class="nav-link mx-2" href="/logout">
+                    <b>Logout</b>
+                </a>
+                <% } %>
+
+            </div>
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,133 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+<div class="row mt-3">
+  <div class="col-10 offset-1">
+    <h2 class="heading"><%= listing.title %></h2>   
+
+
+<div class="card col-8 listing-card mx-auto">
+   <img src="<%= listing.image.url %>" class="card-img-top show-image" alt="listiing_image">
+  <div class="card-body"> 
+    <p class="card-text description">
+      <ul>
+    <li><%= listing.description %></li>
+    <li>&#8377; <%= listing.price.toLocaleString("en-IN")%> </li>
+    <li><%= listing.location %> </li>
+    <li> <%= listing.country %></li>
+  </ul> 
+    </p>
+
+  </div>
+</div>
+
+ <%if(currentUser && listing.owner && listing.owner.equals(currentUser._id)) { %>
+
+  <a href="/listings/<%=listing.id %>/edit" class="btn btn-primary">Edit </a> 
+<br/> <br/>
+   <form method="post" action="/listings/<%=listing.id%>?_method=DELETE">
+  
+    <button type="Delete" class="btn btn-danger">Delete</button>
+        </form>
+        <% } %>
+
+
+       <% if(currentUser) { %>
+    <div class="col-8 mx-auto" review-form> <br/>
+ <hr> 
+
+      <form method="post" action="/listings/<%= listing.id %>/reviews"
+        novalidate class="needs-validation">
+
+        
+           <h4> Kindly Leave Your Review</h4>
+
+        <div class="mb-3 mt-3"> 
+          <b><label for="rating" class="form-label"> Rating</label></b>
+          <input type ="range" 
+          min="1" max="5" 
+          id="rating" 
+          name="review[rating]"
+          class="form-range">
+        </div>
+
+        <div>
+          <b><label for="comment" class="form-label">Comments</label></b>
+          <textarea
+    name="review[comment]"
+    id="comment"
+    cols="30"
+    rows="5"
+    class="form-control"
+    required></textarea>
+
+        <div class="invalid-feedback">
+            Please enter a comment.
+        </div>
+    </div>
+        <br/>
+        <button type="submit" class="btn-btn-primary"> Submit</button>
+      </form>
+    </div>
+    <% } %>
+
+    <!-- //All Reviews Section  -->
+     <% if(listing.reviews.length > 0) { %>
+     <div class="reviews-section">
+    <h3>Guest Reviews</h3>
+    <p> Let's see what our guests have to say</p>
+</div>
+<% } %>
+
+   <div class="row">
+       
+    <% for(review of listing.reviews) { %>
+    <div class="card col-5 ms-3 mb-3 review-card">
+  <div class="card-body"> 
+     <h5 class="card-title"> @<%= review.author.username %> </h5> <hr>
+     <p class="card-text" ><%=review.comment%> </p>
+     <p class="card-text-star">
+        <% for(let i = 1; i <= review.rating; i++) { %>
+               ★
+        <% } %>
+         </p>
+    </div>
+     <% if(currentUser && review.author.equals(currentUser._id)) { %>
+    <form class="mb-3" method="post" action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE"> 
+     <button class="btn btn-sm btn-dark">Delete</button>
+    </form>
+     <% } %> 
+</div>
+       
+  
+
+    <% } %> 
+
+</div>
+</div> 
+<div class="col-10 mx-auto offset-2 ">
+  <hr>
+  <h3>Where To Find Us</h3>
+<div id="map"></div>
+
+</div>
+</div>
+
+
+  <!-- //MAP -->
+<script>
+    mapboxgl.accessToken = "<%= mapToken %>";
+   const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
+    const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v12",
+        center: coordinates,
+        zoom: 9
+    });
+    // Create a default Marker and add it to the map
+    const marker1 = new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map);
+
+    </script>
+
+  
